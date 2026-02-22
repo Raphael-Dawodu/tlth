@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+# Sitemap location
+Sitemap: https://thelearningtreehouse.co.uk/sitemap.xml
