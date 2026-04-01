@@ -134,16 +134,25 @@
         </a>
       </div>
 
-      <!-- Desktop Menu -->
-      <div class="hidden md:block">
-        <div class="ml-10 flex items-baseline space-x-4">
+      <!-- Desktop Menu + Button -->
+      <div class="hidden md:flex items-center space-x-6">
+
+        <!-- Menu -->
+        <div class="flex items-baseline space-x-4">
           <a href="#hero" class="hover:bg-gray-400 px-3 py-2 rounded-md text-base md:text-lg font-medium">Home</a>
           <a href="#about" class="hover:bg-gray-400 px-3 py-2 rounded-md text-base md:text-lg font-medium">About</a>
-          <a href="#features" class="hover:bg-gray-400 px-3 py-2 rounded-md text-base md:text-lg font-medium">Features</a>
+          <a href="#activities" class="hover:bg-gray-400 px-3 py-2 rounded-md text-base md:text-lg font-medium">How we work</a>
           <a href="#pricing-mission-testimonial" class="hover:bg-gray-400 px-3 py-2 rounded-md text-base md:text-lg font-medium">Courses</a>
-          <a href="#activities" class="hover:bg-gray-400 px-3 py-2 rounded-md text-base md:text-lg font-medium">Activities</a>
+          <a href="#activitiess" class="hover:bg-gray-400 px-3 py-2 rounded-md text-base md:text-lg font-medium">Activities</a>
           <a href="#contact" class="hover:bg-gray-400 px-3 py-2 rounded-md text-base md:text-lg font-medium">Contact</a>
         </div>
+
+        <!-- Book a Call Button -->
+        <a href="https://calendly.com/contactus-thelearningtreehouse/1hour" target="_blank"
+           class="bg-green-500 hover:bg-green-600 text-white font-semibold px-5 py-2 rounded-full shadow-lg hover:scale-105 transition transform duration-200">
+          Book a call
+        </a>
+
       </div>
 
       <!-- Mobile Menu Button -->
@@ -161,45 +170,63 @@
   </div>
 </header>
 
-    <!-- Mobile menu -->
-    <div class="md:hidden hidden" id="mobile-menu">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a href="#hero" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">Home</a>
-        <a href="#about" class="hover:bg-gray-400 px-3 py-2 rounded-md text-base md:text-lg font-medium">About</a>
-        <a href="#features" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">Features</a>
-        <a href="#pricing-mission-testimonial" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">Courses</a>
-        <a href="#activities" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">Activities</a>
-        <!-- <a href="#testimonials" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">Testimonials</a> -->
-        <!-- <a href="#pricing" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">Pricing</a>  -->
-        <a href="#contact" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
-      </div>
+<!-- Mobile menu -->
+<div class="md:hidden hidden" id="mobile-menu">
+  <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+    <a href="#hero" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+    <a href="#about" class="hover:bg-gray-400 block px-3 py-2 rounded-md text-base font-medium">About</a>
+    <a href="#activities" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">How we work</a>
+    <a href="#pricing-mission-testimonial" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">Courses</a>
+    <a href="#activitiess" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">Activities</a>
+    <a href="#contact" class="hover:bg-neutral-700 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+
+    <!-- Book a Call Button (Mobile) -->
+    <div class="px-3 pt-4">
+      <a href="https://calendly.com/contactus-thelearningtreehouse/1hour" target="_blank"
+         class="block text-center bg-green-500 hover:bg-green-600 text-white font-semibold px-5 py-3 rounded-full shadow-lg transition transform hover:scale-105 duration-200">
+        Book a call
+      </a>
     </div>
-  </nav>
+  </div>
+</div>
+
+<!-- Mobile Menu Toggle Script -->
+<!-- <script>
+  const btn = document.querySelector(".mobile-menu-button");
+  const menu = document.querySelector("#mobile-menu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script> -->
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const mobileMenuButton = document.querySelector('.mobile-menu-button');
-      const mobileMenu = document.querySelector('#mobile-menu');
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.querySelector('.mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
 
-      mobileMenuButton.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-      });
+  if (!btn || !menu) return; // safety check
 
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
-          mobileMenu.classList.add('hidden');
-        }
-      });
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation(); // prevent outside click from firing
+    menu.classList.toggle('hidden');
+  });
 
-      // Close mobile menu when window is resized to desktop view
-      window.addEventListener('resize', function() {
-        if (window.innerWidth >= 768) {
-          mobileMenu.classList.add('hidden');
-        }
-      });
-    });
-  </script>
+  // Close when clicking outside
+  document.addEventListener('click', function (e) {
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.add('hidden');
+    }
+  });
+
+  // Reset on resize (desktop view)
+  window.addEventListener('resize', function () {
+    if (window.innerWidth >= 768) {
+      menu.classList.add('hidden');
+    }
+  });
+});
+</script>
 </div>
 </htmlCode></element><element id="ae74c025-841f-4739-a4e4-bd03794dd6c0" data-section-id="ae74c025-841f-4739-a4e4-bd03794dd6c0">
 
@@ -220,14 +247,13 @@
                 Join Our Community
             </h1>
             <p class="text-lg md:text-xl mb-6">
-                Join The Learning Treehouse today and give your child the support they need to succeed in school and beyond. Our personalised Maths and English tutoring programmes are designed to help children build confidence, strengthen essential academic skills, and develop a love of learning. With expert guidance and tailored lessons for every child, we help students unlock their full potential and achieve lasting academic success.
-            </p>
+Join The Learning Treehouse today and give your child the support they need to succeed in school and beyond. Our personalised Maths and English tutoring programmes are designed to help children build confidence, strengthen essential academic skills, and develop a love for learning. With expert guidance and tailored lessons for every child, we help students unlock their full potential and achieve lasting academic success.            </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="https://calendly.com/contactus-thelearningtreehouse/1hour" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-center transition duration-300 animate__animated animate__pulse animate__infinite">
                     Get Started
                 </a>
                 <a href="#pricing-mission-testimonial" class="border-2 border-white hover:bg-white hover:text-neutral-900 text-white font-bold py-3 px-8 rounded-lg text-center transition duration-300">
-                    Our Services
+                    View Pricing
                 </a>
             </div>
         </div>
@@ -358,27 +384,84 @@
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Heading -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-gray-900 mb-4">How We Work</h2>
-      <div class="w-24 h-1 bg-green-600 mx-auto"></div>
+    <section class="py-20 bg-[#f5f3ea]">
+
+  <!-- Heading -->
+<div class="text-center mb-16 px-6">
+
+  <h3 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+    How we Works
+  </h3>
+  
+  <h2 class="text-1xl md:text-3xl font-semibold tracking-widest text-gray-500 uppercase mb-3">
+    A simple journey for parents
+  </h2>
+  
+  <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+    From first conversation to weekly tuition, we make it easy to get the right support for your child.
+  </p>
+
+</div>
+
+  <!-- Steps -->
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-stretch">
+
+      <!-- Step 1 -->
+      <div class="relative flex-1 bg-[#7c3f2c] text-white p-6 flex flex-col justify-center">
+        <div class="flex items-center space-x-3 mb-3">
+          <div class="bg-white text-[#7c3f2c] font-bold rounded-full w-8 h-8 flex items-center justify-center">1</div>
+          <h3 class="font-semibold">Book a call</h3>
+        </div>
+        <p class="text-sm">
+          Speak to us about your child’s needs, current challenges and goals.
+        </p>
+
+        <!-- Arrow -->
+        <div class="hidden md:block absolute right-0 top-0 h-full w-6 bg-[#7c3f2c] clip-arrow"></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="relative flex-1 bg-[#b7c943] text-gray-900 p-6 flex flex-col justify-center">
+        <div class="flex items-center space-x-3 mb-3">
+          <div class="bg-white text-[#b7c943] font-bold rounded-full w-8 h-8 flex items-center justify-center">2</div>
+          <h3 class="font-semibold">Take an assessment</h3>
+        </div>
+        <p class="text-sm">
+          We assess strengths, gaps and confidence levels to understand the best starting point.
+        </p>
+
+        <div class="hidden md:block absolute right-0 top-0 h-full w-6 bg-[#b7c943] clip-arrow"></div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="relative flex-1 bg-[#5aa06a] text-white p-6 flex flex-col justify-center">
+        <div class="flex items-center space-x-3 mb-3">
+          <div class="bg-white text-[#5aa06a] font-bold rounded-full w-8 h-8 flex items-center justify-center">3</div>
+          <h3 class="font-semibold">Personalised plan</h3>
+        </div>
+        <p class="text-sm">
+          We create a tailored learning plan designed to help your child catch up or move ahead.
+        </p>
+
+        <div class="hidden md:block absolute right-0 top-0 h-full w-6 bg-[#5aa06a] clip-arrow"></div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="flex-1 bg-[#2f6b3f] text-white p-6 flex flex-col justify-center">
+        <div class="flex items-center space-x-3 mb-3">
+          <div class="bg-white text-[#2f6b3f] font-bold rounded-full w-8 h-8 flex items-center justify-center">4</div>
+          <h3 class="font-semibold">Start weekly tuition</h3>
+        </div>
+        <p class="text-sm">
+          Lessons begin with progress tracking, feedback and adjustments as your child grows.
+        </p>
+      </div>
+
     </div>
+  </div>
 
-    <!-- Content -->
-    <div class="bg-white rounded-2xl shadow-xl p-10 text-center space-y-6">
-
-      <p class="text-lg text-gray-700">
-        We help children catch up, keep up and advance with confidence.
-      </p>
-
-      <p class="text-lg text-gray-700">
-        Every child starts with an assessment so we can understand current ability, identify strengths and gaps, and create a personalised learning plan. From there, we deliver focused weekly tuition that is adapted to your child’s needs and pace.
-      </p>
-
-      <p class="text-lg text-gray-700">
-        Whether your child needs extra support to build strong foundations or greater challenge to move ahead, our approach is designed to make learning clear, encouraging and effective.
-      </p>
-
-    </div>
+</section>
 
     <!-- CTA Section -->
     <div class="mt-20 bg-neutral-900 text-white rounded-2xl p-12 text-center shadow-xl space-y-6">
@@ -491,7 +574,7 @@
 
 <htmlCode>
 <div id="root">
-  <section id="activities"class="py-20 bg-grey-100"">
+  <section id="activitiess"class="py-20 bg-grey-100"">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 animate__animated animate__fadeIn">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Learning Activities</h2>
@@ -772,15 +855,12 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-gray-800">
       
       <!-- About -->
-      <div>
+      <div class="flex flex-col items-start">
   <img 
-    src="./assets/fv/Screenshot 2026-03-24 080601.png" 
+    src="./assets/fv/WhatsApp Image 2026-03-27 at 9.49.22 AM.jpeg" 
     alt="The Learning Treehouse Logo" 
-    class="h-12 mb-4 block"
+    class="h-24 md:h-28 lg:h-32 w-auto mb-4 transition duration-300 ease-in-out hover:scale-105 hover:brightness-110 hover:drop-shadow-[0_0_15px_rgba(34,197,94,0.6)]"
   >
-  <p class="text-gray-400 text-sm leading-relaxed">
-    Inspiring lifelong learning through personalised programmes that build confidence, skills, and curiosity in every child.
-  </p>
 </div>
 
       <!-- Quick Links -->
