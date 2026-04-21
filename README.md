@@ -32,7 +32,6 @@ The Learning Treehouse is a professional tutoring website specializing in Maths 
 - **Homepage**: Complete business website with all sections
 - **Privacy Policy**: Dedicated privacy policy page with full GDPR compliance information
 - **Terms of Service**: Legal terms and service agreement
-- **Cookie Policy**: GDPR-compliant cookie disclosure
 - **404 Error Page**: Professional error handling for broken links
 - **Footer Links**: Quick navigation and social media links
 
