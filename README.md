@@ -1,8 +1,8 @@
-# The Learning Treehouse - Maths & English Tutoring Website
+# The Learning Treehouse - Maths, English & Chess Tutoring Website
 
 ## 📚 Overview
 
-The Learning Treehouse is a professional tutoring website specializing in Maths and English education for children in Aberdeen, Scotland. This website provides information about our services, allows parents to book consultations, and showcases our expertise in personalized education.
+The Learning Treehouse is a professional tutoring website specializing in Maths, English and Chess education for children in Aberdeen, Scotland. This website provides information about our services, allows parents to book consultations, and showcases our expertise in personalized education.
 
 ## 🚀 Features Implemented
 
@@ -133,7 +133,7 @@ The contact form sends emails using Office 365 SMTP. To set this up:
 ### Implemented SEO Elements
 - ✅ Title tags optimized for local search
 - ✅ Meta descriptions with call-to-actions
-- ✅ Keyword-rich content (Maths tutoring Aberdeen, English tutoring Aberdeen)
+- ✅ Keyword-rich content (Maths tutoring Aberdeen, English tutoring Aberdeen, Chess lessons Aberdeen)
 - ✅ Local SEO targeting (Aberdeen, Scotland)
 - ✅ Schema.org structured data
 - ✅ Open Graph and Twitter Card meta tags
@@ -142,7 +142,7 @@ The contact form sends emails using Office 365 SMTP. To set this up:
 - ✅ Fast loading optimization
 
 ### Target Keywords
-- Primary: Maths tutoring Aberdeen, English tutoring Aberdeen
+- Primary: Maths tutoring Aberdeen, English tutoring Aberdeen, Chess lessons Aberdeen
 - Secondary: personalised tutoring, confidence building, academic success
 - Long-tail: children learning support, expert tutors Aberdeen
 
